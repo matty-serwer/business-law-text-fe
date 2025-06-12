@@ -1,0 +1,70 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+We are using tailwind v4. the configuration is different than previous versions:
+
+1. CSS-First Configuration:
+Eliminate tailwind.config.js:
+.
+Tailwind v4 encourages you to omit the tailwind.config.js file and instead define your theme and configuration options directly in your CSS. 
+Directives for Customization:
+.
+Utilize directives like @theme to customize your theme, @plugin to include v4-compatible plugins, and @layer to organize your styles. 
+2. Leveraging Tailwind's Layers:
+Base Layer: Apply default styles to HTML elements (like h1 or p) using the base layer.
+Components Layer: Create class-based styles for reusable components like buttons, forms, or modals.
+Utilities Layer: Utilize small, single-purpose utility classes that should take precedence over other styles. 
+3. Recommended Practices:
+Class Naming:
+.
+Create reusable classes using Tailwind's @apply directive to avoid code repetition. 
+Component Structure:
+.
+Organize your layouts into separate components to improve maintainability and reusability. 
+Avoid Complex Classes:
+.
+Prefer simpler utility classes for layout and spacing, minimizing the need for overly complex class names. 
+Style Guides:
+.
+Establish a style guide for your project to ensure consistency and maintainability across your codebase. 
+4. Optional: Prettier Plugin for Class Sorting:
+Install prettier-plugin-tailwindcss: Install the Prettier plugin for Tailwind CSS. 
+Configure Prettier: Add the plugin to your Prettier configuration and use it to automatically sort Tailwind CSS classes. 
+Benefits: The plugin ensures your classes are sorted in the recommended order (base, components, utilities) and groups related classes (like modifiers) together. 
+
+CODE EXAMPLES:
+```
+/* CSS-First Configuration - theme */
+@theme {
+  extend {
+    colors: {
+      'primary': '#0070f3',
+    }
+  }
+}
+
+/* @layer directives */
+@layer base {
+  h1 {
+    font-size: var(--text-2xl);
+  }
+}
+
+/* @layer components */
+@layer components {
+  .btn {
+    @apply bg-primary text-white py-2 px-4 rounded;
+  }
+}
+
+/* @layer utilities */
+@layer utilities {
+  .flex-cb {
+    @apply flex items-center justify-between;
+  }
+}
+```
+
+By using CSS-first configuration, organizing styles into layers, and optionally incorporating a Prettier plugin for automatic class sorting, you can effectively manage Tailwind CSS styles in v4, ensuring a more organized and maintainable codebase. 
