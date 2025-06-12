@@ -1,0 +1,42 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+{
+  "$schema": "https://app.cursor.sh/schemas/v1/ProjectRules.json",
+  "rules": [
+    {
+      "pattern": "app/**/*.{ts,tsx}",
+      "description": "Use the Next.js App Router. No usage of pages/ directory or old file-based routing."
+    },
+    {
+      "pattern": "components/ui/**/*.{ts,tsx}",
+      "description": "Use Shadcn/ui components. Generate with `npx shadcn-ui@latest add`, do not write manually unless customizing an existing base."
+    },
+    {
+      "pattern": "components/**/*.{ts,tsx}",
+      "description": "Comment all components with a short how/why. Maintain readable structure for new developers."
+    },
+    {
+      "pattern": "lib/**/*.{ts,tsx}",
+      "description": "Utility files should be context-aware and reference related components/routes via Context7 where possible."
+    },
+    {
+      "pattern": "styles/**/*.{css,scss}",
+      "description": "Tailwind v4 only. Include `@tailwind base`, `@tailwind components`, and `@tailwind utilities`. No global styles unless explicitly required."
+    },
+    {
+      "pattern": "tailwind.config.ts",
+      "description": "Must include `./app/**/*.{ts,tsx}`, `./components/**/*.{ts,tsx}`, and `./node_modules/@shadcn/ui/**/*.{ts,tsx}` in content paths. Theme customization should stay minimal unless project demands."
+    },
+    {
+      "pattern": "**/*.tsx",
+      "description": "Prefer server components where possible. Use client directive (`'use client'`) sparingly, only when necessary for interactivity."
+    },
+    {
+      "pattern": "**/*",
+      "description": "Every file that contains logic should include comments explaining how it works and why it exists. If unsure, describe intent."
+    }
+  ]
+}

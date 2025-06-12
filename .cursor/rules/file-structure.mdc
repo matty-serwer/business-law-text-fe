@@ -1,0 +1,30 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+lawtextbook-site/
+├── app/
+│   ├── page.tsx               # Home
+│   ├── about/page.tsx
+│   ├── media/page.tsx
+│   ├── linkedin/page.tsx
+│   ├── blog/page.tsx
+│   ├── references/page.tsx
+│   └── admin/
+│       ├── page.tsx           # Dashboard (protected)
+│       ├── login/page.tsx     # Auth form
+├── components/
+│   ├── layout/                # Header, Footer, Container
+│   ├── pages/                 # BlogCard, ReferenceCard
+│   └── ui/                    # Auto-generated Shadcn components
+├── lib/
+│   ├── auth.ts                # Client auth helpers
+│   └── api.ts                 # API fetchers for blog, references, linkedin
+├── styles/
+│   └── tailwind.css           # Tailwind base (required)
+├── tailwind.config.ts
+├── postcss.config.js
+├── tsconfig.json
+├── next.config.js
+└── .mcp.json                  # ⬅️ Meta Context Plan (loaded by Cursor)
