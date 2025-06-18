@@ -1,5 +1,4 @@
 // Footer: Simple site footer using shadcn/ui Card for styling
-import { Card } from "@/components/ui/card"
 
 export default function Footer() {
   return (
