@@ -26,16 +26,28 @@ export default function Page() {
       <div className="max-w-3xl mx-auto">
         <div className="flex flex-col gap-4">
           <Select value={selectedUrl} onValueChange={setSelectedUrl}>
-            <SelectTrigger className="w-full">
+            <SelectTrigger className="w-full h-22">
               <SelectValue placeholder="Select a video" />
             </SelectTrigger>
-            <SelectContent className="max-h-72 overflow-y-auto">
+            <SelectContent className="max-h-82 overflow-y-auto text-lg">
               {videoLinks.map((video) => (
                 <SelectItem
                   key={`${video.chapter}-${video.title}`}
                   value={video.url}
                 >
-                  {video.title}
+                  {video.chapter === 0 ? (
+                    <span className="w-full font-semibold text-lg text-primary">
+                      {video.title}
+                    </span>
+                  ) : (
+                    <div className="flex w-full items-center justify-between gap-10 text-lg">
+                      <span className="font-medium whitespace-nowrap text-muted-foreground">Chapter {video.chapter}</span>
+                      <div id="title-container text-primary-foreground text-right flex-shrink-0">
+                        <span className="text-primary whitespace-nowrap mr-2">{video.type.charAt(0).toUpperCase() + video.type.slice(1)}:</span>
+                        <span className="text-primary font-normal truncate">{video.title}</span>
+                      </div>
+                    </div>
+                  )}
                 </SelectItem>
               ))}
             </SelectContent>
