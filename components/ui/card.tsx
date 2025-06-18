@@ -7,7 +7,7 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card"
       className={cn(
-        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
+        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-8 px-3 my-10 shadow-sm",
         className
       )}
       {...props}
@@ -32,17 +32,28 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-title"
-      className={cn("leading-none font-semibold", className)}
+      className={cn("leading-none font-bold text-3xl text-primary", className)}
       {...props}
     />
   )
 }
 
-function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
+function CardSubtitle({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="card-subtitle"
+      className={cn("text-muted-foreground font-light text-xl pb-2", className)}
+      {...props}
+    />
+  )
+}
+
+
+function CardContentText({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-description"
-      className={cn("text-muted-foreground text-sm", className)}
+      className={cn("text-muted-foreground text-sm pb-4 font-serif", className)}
       {...props}
     />
   )
@@ -81,12 +92,26 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+// CardHyperlink: For external links in CardContent
+function CardHyperlink({ className, ...props }: React.ComponentProps<"a">) {
+  return (
+    <a
+      className={cn("text-primary underline text-sm", className)}
+      target="_blank"
+      rel="noopener noreferrer"
+      {...props}
+    />
+  );
+}
+
 export {
   Card,
   CardHeader,
   CardFooter,
   CardTitle,
+  CardSubtitle,
   CardAction,
-  CardDescription,
+  CardContentText,
   CardContent,
+  CardHyperlink,
 }
