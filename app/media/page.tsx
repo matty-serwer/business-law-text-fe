@@ -12,12 +12,13 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area"
 import videoLinks from "@/mock/video-links.json"
 import YoutubePlaylistPlayer from "@/components/ui/youtube-playlist-player"
+import Container from '@/components/layout/Container'
 
 export default function Page() {
   const [selectedUrl, setSelectedUrl] = useState(videoLinks[0]?.url || "")
 
   return (
-    <div className="max-w-3xl mx-auto py-10 w-full">
+    <Container>
       <PageTitle>Media</PageTitle>
       <YoutubePlaylistPlayer
         videoLinks={videoLinks}
@@ -61,6 +62,6 @@ export default function Page() {
           </Select>
         </div>
       </div>
-    </div>
+    </Container>
   )
 } 
