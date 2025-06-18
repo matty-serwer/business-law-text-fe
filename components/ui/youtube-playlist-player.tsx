@@ -2,10 +2,35 @@
 
 import { useEffect, useRef } from "react"
 
+// YouTube IFrame API types
+interface YT {
+  Player: {
+    new(elementId: string, config: PlayerConfig): YouTubePlayer
+  }
+}
+
+interface PlayerConfig {
+  videoId: string
+  playerVars?: {
+    autoplay?: 0 | 1
+    rel?: 0 | 1
+    [key: string]: unknown
+  }
+  events?: {
+    onReady?: () => void
+    onStateChange?: (event: { data: number }) => void
+  }
+}
+
+interface YouTubePlayer {
+  loadVideoById: (videoId: string) => void
+  destroy: () => void
+}
+
 // Add YT to the Window type for TypeScript
 declare global {
   interface Window {
-    YT: any
+    YT: YT
   }
 }
 
@@ -27,7 +52,7 @@ function getVideoId(url: string) {
 }
 
 export default function YoutubePlaylistPlayer({ videoLinks, selectedUrl, onSelect }: YoutubePlaylistPlayerProps) {
-  const playerRef = useRef<any>(null)
+  const playerRef = useRef<YouTubePlayer | null>(null)
 
   // Load YouTube IFrame API
   useEffect(() => {
@@ -40,11 +65,12 @@ export default function YoutubePlaylistPlayer({ videoLinks, selectedUrl, onSelec
   // Create or update the player
   useEffect(() => {
     function onPlayerReady() {
-      if (playerRef.current && playerRef.current.loadVideoById) {
+      if (playerRef.current?.loadVideoById) {
         playerRef.current.loadVideoById(getVideoId(selectedUrl))
       }
     }
-    function onPlayerStateChange(event: any) {
+
+    function onPlayerStateChange(event: { data: number }) {
       // 0 means ended
       if (event.data === 0) {
         const idx = videoLinks.findIndex(v => v.url === selectedUrl)
@@ -53,9 +79,10 @@ export default function YoutubePlaylistPlayer({ videoLinks, selectedUrl, onSelec
         }
       }
     }
+
     // Wait for YT to be available
     const interval = setInterval(() => {
-      if (window.YT && window.YT.Player) {
+      if (window.YT?.Player) {
         clearInterval(interval)
         if (!playerRef.current) {
           playerRef.current = new window.YT.Player("yt-player", {
@@ -71,8 +98,14 @@ export default function YoutubePlaylistPlayer({ videoLinks, selectedUrl, onSelec
         }
       }
     }, 100)
-    return () => clearInterval(interval)
-    // eslint-disable-next-line
+
+    return () => {
+      clearInterval(interval)
+      if (playerRef.current?.destroy) {
+        playerRef.current.destroy()
+        playerRef.current = null
+      }
+    }
   }, [selectedUrl, videoLinks, onSelect])
 
   return (
