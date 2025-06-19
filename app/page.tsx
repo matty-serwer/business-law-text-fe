@@ -1,17 +1,18 @@
 // Home page - server component
 import Image from "next/image";
+import Container from "@/components/layout/Container";
 
 export default function Page() {
   return (
-    <div>
-      <div className="max-w-3xl mx-auto py-10 hero-section" id="hero">
+    <Container>
+      <div className="hero-section" id="hero">
         <h1 className="text-center text-primary pb-3 font-serif">Business Law</h1>
         <h3 className="text-center text-muted-foreground">
           A Modern Textbook for Undergraduate Students and Primer for Law Students.
         </h3>
         <p className="text-3xl font-serif mb-10 mt-4 text-start ml-17">By Gavin Goldstein</p>
 
-        <div className="mt-4 mb-0 mx-auto" id="book-description">
+        <div className="mt-18 mb-0" id="home-page-body">
           <div className="relative">
             <Image
               src="/images/Gavin_B&W_001.png"
@@ -32,6 +33,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   )
 }

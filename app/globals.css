@@ -131,6 +131,9 @@
   h3 {
     @apply text-2xl font-semibold;
   }
+  p {
+    @apply text-sm font-serif text-slate-800
+  }
 }
 
 @layer components {

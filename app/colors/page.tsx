@@ -2,6 +2,8 @@
 // Each color is rendered as a block with its class name for visual reference
 // Useful for design system review and QA
 
+import Container from '@/components/layout/Container';
+
 const colorSwatches = [
   // Backgrounds & Foregrounds
   { label: 'bg-background', className: 'bg-background text-foreground' },
@@ -43,7 +45,7 @@ const colorSwatches = [
 
 export default function ColorsPage() {
   return (
-    <div className="max-w-2xl mx-auto py-10">
+    <Container>
       <h1 className="text-3xl font-bold mb-6">Theme Color Classes Demo</h1>
       <div className="space-y-2">
         {colorSwatches.map((swatch) => (
@@ -59,6 +61,6 @@ export default function ColorsPage() {
       <p className="mt-8 text-xs text-muted-foreground">
         This page is for development/testing only. It shows all theme color classes as defined in globals.css and Tailwind config.
       </p>
-    </div>
+    </Container>
   );
 } 

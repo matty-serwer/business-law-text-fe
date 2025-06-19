@@ -1,10 +1,11 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { PageTitle } from "@/components/ui/page-title"
+import Container from "@/components/layout/Container"
 
 // Related page - server component
 export default function Page() {
   return (
-    <div className="max-w-4xl mx-auto py-10">
+    <Container>
       <PageTitle>Related Research</PageTitle>
 
       <Tabs defaultValue="qualitative" orientation="vertical" className="flex flex-col items-center mt-6">
@@ -39,6 +40,6 @@ export default function Page() {
           </TabsContent>
         </div>
       </Tabs>
-    </div>
+    </Container>
   )
 } 
