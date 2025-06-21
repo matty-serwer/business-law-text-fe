@@ -1,7 +1,6 @@
 // Home page - server component
 import Image from "next/image";
 import Container from "@/components/layout/Container";
-import BackgroundFade from "@/components/layout/BackgroundFade";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
