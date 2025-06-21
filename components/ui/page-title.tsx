@@ -7,7 +7,7 @@ function PageTitle({ className, ...props }: React.ComponentProps<"h1">) {
     <div
       data-slot="page-title"
       className={cn(
-        "text-center font-medium text-6xl mb-15",
+        "text-center font-medium text-6xl mb-18 sm:mb-24 mt-10 sm:mt-12",
         className
       )}
       {...props}
