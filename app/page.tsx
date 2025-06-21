@@ -13,13 +13,13 @@ export default function Page() {
       <div className="relative min-h-[calc(100vh-33px)]">
         <Container>
           <div className="hero-section" id="hero">
-            <h1 className="text-center text-primary pb-3 font-serif">Business Law</h1>
+            <h1 className="text-center text-primary pb-4 mt-10 font-serif">Business Law</h1>
             <h3 className="text-center text-muted-foreground">
               A Modern Textbook for Undergraduate Students and Primer for Law Students.
             </h3>
-            <p className="text-3xl font-serif mb-10 mt-4 text-start ml-17">By Gavin Goldstein</p>
+            <p className="text-4xl font-serif mb-10 mt-8 text-start ml-17">by Dr.Gavin Goldstein</p>
 
-            <div className="mt-18 mb-0" id="home-page-body">
+            <div className="mt-26 mb-10" id="home-page-body">
               <div className="relative">
                 <Image
                   src="/images/Gavin_B&W_001.png"
