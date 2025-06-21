@@ -109,7 +109,7 @@ export default function YoutubePlaylistPlayer({ videoLinks, selectedUrl, onSelec
   }, [selectedUrl, videoLinks, onSelect])
 
   return (
-    <div className="w-screen left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] mb-8 relative">
+    <div className="w-full max-w-[2000px] mx-auto">
       <div className="aspect-video w-full">
         <div id="yt-player" className="w-full h-full" />
       </div>
