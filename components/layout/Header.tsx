@@ -2,7 +2,7 @@
 'use client'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Menu } from 'lucide-react'
+import { Bars3Icon } from '@heroicons/react/24/outline'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -61,23 +61,23 @@ export default function Header() {
         <div className="lg:hidden flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-5 w-5" />
+              <Button variant="ghost" className="h-16 w-16 p-0">
+                <Bars3Icon className="size-12" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-48">
+            <DropdownMenuContent align="end" className="w-72 pl-6">
               {pages.map((page) => (
-                <DropdownMenuItem key={page.href} asChild>
-                  <Link href={page.href}>{page.name}</Link>
+                <DropdownMenuItem key={page.href} asChild className="py-4">
+                  <Link href={page.href} className="text-xl font-medium">{page.name}</Link>
                 </DropdownMenuItem>
               ))}
-              <DropdownMenuItem asChild>
+              <DropdownMenuItem asChild className="py-4 mt-2">
                 <Link
                   href="https://collegepublishing.sagepub.com/products/business-law-1-298068"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium"
+                  className="text-xl font-semibold text-primary"
                 >
                   Purchase
                 </Link>
