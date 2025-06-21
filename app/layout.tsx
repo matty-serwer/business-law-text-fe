@@ -2,7 +2,6 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
 import Header from "@/components/layout/Header"
 import Footer from "@/components/layout/Footer"
-import Container from "@/components/layout/Container"
 import type { Metadata } from "next";
 import { Rethink_Sans, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
@@ -35,9 +34,7 @@ export default function RootLayout({
         {/* ThemeProvider enables dark/light mode and system preference */}
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Header />
-          <Container>
-            {children}
-          </Container>
+          {children}
           <Footer />
           <Toaster />
         </ThemeProvider>

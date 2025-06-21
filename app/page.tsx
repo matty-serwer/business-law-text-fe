@@ -1,36 +1,62 @@
 // Home page - server component
 import Image from "next/image";
+import Container from "@/components/layout/Container";
+import BackgroundFade from "@/components/layout/BackgroundFade";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Page() {
   return (
-    <div>
-      <div className="max-w-3xl mx-auto py-10 hero-section" id="hero">
-        <h1 className="text-center text-primary pb-3 font-serif">Business Law</h1>
-        <h3 className="text-center text-muted-foreground">
-          A Modern Textbook for Undergraduate Students and Primer for Law Students.
-        </h3>
-        <div className="flex flex-col md:flex-row gap-6 mt-6 mb-0">
-          <div className="flex-1">
-            <p className="text-3xl font-serif mb-8">By Gavin Goldstein</p>
-            <p className="md:pr-6 text-sm font-serif">
-              Written in a relaxed manner that students will relate to and enjoy. (How many of your students enjoy reading their book?) The book is not intimidating or overwhelming. Rather, Gavin provides an outline and discussion of complicated legal subjects written in plain,. clear English. The &ldquo;colloquial approach.&rdquo; Real-world examples like the Enron case, the &ldquo;Cannibal Cop,&rdquo; the global distribution chain of Apple iPhones, the Paris Climate Change Agreement, and NATO illustrate and clarify key concepts. Reaches students where they are. The text portrays updates in the law after 2020
-            </p>
+    <div className="relative min-h-[calc(100vh-33px)]">
+      <div id="page-background" className="absolute inset-0 bg-[url(/backgrounds/blue_mountains_001.jpg)] bg-cover bg-bottom opacity-70" />
+      <div id="gradient-overlay" className="absolute inset-0 bg-gradient-to-t from-transparent via-white/70 to-white" />
+      <div className="relative min-h-[calc(100vh-33px)]">
+        <Container>
+          <div className="hero-section" id="hero">
+            <h1 className="text-center text-primary pb-2 sm:pb-4 mt-6 sm:mt-10 font-serif text-4xl sm:text-5xl md:text-6xl">Business Law</h1>
+            <h3 className="text-center text-muted-foreground text-sm sm:text-base md:text-lg px-4 sm:px-8">
+              A Modern Textbook for Undergraduate Students and Primer for Law Students.
+            </h3>
+            <p className="text-2xl sm:text-3xl md:text-4xl font-serif mb-6 sm:mb-10 mt-4 sm:mt-8 text-center sm:text-start sm:ml-17">by Dr.Gavin Goldstein</p>
+
+            <div className="mt-8 sm:mt-26 mb-6 sm:mb-10" id="home-page-body">
+              <div className="relative flex flex-col sm:block">
+                <Image
+                  src="/images/Gavin_B&W_001.png"
+                  alt="Business Law"
+                  width={360}
+                  height={360}
+                  className="mx-auto sm:float-right sm:ml-6 mb-6 sm:mb-4 px-3 w-[280px] sm:w-[360px]"
+                />
+                <span id="book-description">
+                  <p className="journal-print-wrap text-sm sm:text-base px-4 sm:px-0">
+                    Written in a relaxed manner that students will relate to and enjoy. (How many of your students enjoy reading their book?) The book is not intimidating or overwhelming. Rather, Gavin provides an outline and discussion of complicated legal subjects written in plain,. clear English. The &ldquo;colloquial approach.&rdquo; Real-world examples like the Enron case, the &ldquo;Cannibal Cop,&rdquo; the global distribution chain of Apple iPhones, the Paris Climate Change Agreement, and NATO illustrate and clarify key concepts. Reaches students where they are.
+                  </p>
+                  <p className="journal-print-wrap mt-3 text-sm sm:text-base px-4 sm:px-0">
+                    The text portrays updates in the la including recent Supreme Court decisions that dramatically affect businesses -- Citizens United, Bostock v. Clayton County, Burwell v. Hobby Lobby, Dobbs v. Women&apos;s Health Organization, and Students for Fair Admissions v. Harvard. Uses modern themes and examples including the Black Lives Matter movement, BREXIT, the Student Loan Crisis, and Hamilton the Broadway musical. Incorporates the concepts of Diversity, Equity, and Inclusion by highlighting ethical business practices with an emphasis on corporate social responsibility and public benefit corporations.
+                  </p>
+                </span>
+              </div>
+
+              <div className="mt-12 sm:mt-36 flex justify-center">
+                <Button
+                  asChild
+                  size="lg"
+                  variant="accent"
+                  className="font-semibold text-sm sm:text-base"
+                >
+                  <Link
+                    href="https://collegepublishing.sagepub.com/products/business-law-1-298068"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Get the Book!
+                  </Link>
+                </Button>
+              </div>
+            </div>
           </div>
-          <div className="flex-1 pt-10">
-            <Image
-              src="/images/Gavin_B&W_001.png"
-              alt="Business Law"
-              width={300}
-              height={300}
-              className="object-contain"
-            />
-          </div>
-        </div>
-        <div className="flex-1">
-          <p className="md:pr-6 text-sm font-serif">
-            including recent Supreme Court decisions that dramatically affect businesses -- Citizens United, Bostock v. Clayton County, Burwell v. Hobby Lobby, Dobbs v. Women&apos;s Health Organization, and Students for Fair Admissions v. Harvard. Uses modern themes and examples including the Black Lives Matter movement, BREXIT, the Student Loan Crisis, and Hamilton the Broadway musical. Incorporates the concepts of Diversity, Equity, and Inclusion by highlighting ethical business practices with an emphasis on corporate social responsibility and public benefit corporations.
-          </p>
-        </div>
+        </Container>
       </div>
     </div>
   )

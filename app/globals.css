@@ -58,7 +58,7 @@
 --primary-foreground: oklch(0.961 0 0);
 --sidebar-primary-foreground: oklch(0.961 0 0);
 --secondary: oklch(0.882 0.009 243);
---accent: oklch(0.882 0.009 243);
+--accent: oklch(74% 28% 196);
 --sidebar-accent: oklch(0.882 0.009 243);
 --secondary-foreground: oklch(0.218 0 0);
 --accent-foreground: oklch(0.218 0 0);
@@ -94,7 +94,7 @@
 --primary-foreground: oklch(0.961 0 0);
 --sidebar-primary-foreground: oklch(0.961 0 0);
 --secondary: oklch(0.311 0.041 252);
---accent: oklch(0.311 0.041 252);
+--accent: oklch(74% 28% 196);
 --sidebar-accent: oklch(0.311 0.041 252);
 --secondary-foreground: oklch(0.961 0 0);
 --accent-foreground: oklch(0.961 0 0);
@@ -123,12 +123,24 @@
     @apply bg-background text-foreground;
   }
   h1 {
-    @apply text-6xl font-bold;
+    @apply text-7xl font-bold;
   }
   h2 {
     @apply text-4xl font-bold;
   }
   h3 {
     @apply text-2xl font-semibold;
+  }
+  p {
+    @apply text-sm font-serif text-slate-800
+  }
+}
+
+@layer components {
+  .journal-print-wrap {
+    @apply text-sm font-serif leading-relaxed tracking-wide text-justify indent-1;
+  }
+  .journal-print-wrap::first-letter {
+    @apply float-left text-5xl mr-2 font-bold leading-none;
   }
 }

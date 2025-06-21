@@ -2,11 +2,11 @@
 import updates from '../../mock/book-updates.json';
 import { Card, CardHeader, CardTitle, CardContentText, CardContent, CardHyperlink, CardSubtitle } from '@/components/ui/card';
 import { PageTitle } from '@/components/ui/page-title';
+import Container from '@/components/layout/Container';
 
 export default function Page() {
   return (
-    <div className="max-w-2xl mx-auto py-10">
-
+    <Container>
       <PageTitle>Book Updates</PageTitle>
       <div className="space-y-6">
         {updates.map((item, idx) => (
@@ -22,6 +22,6 @@ export default function Page() {
           </Card>
         ))}
       </div>
-    </div>
+    </Container>
   );
 } 
