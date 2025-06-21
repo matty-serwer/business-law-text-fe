@@ -1,7 +1,6 @@
 // Home page - server component
 import Image from "next/image";
 import Container from "@/components/layout/Container";
-import BackgroundFade from "@/components/layout/BackgroundFade";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
@@ -57,7 +56,7 @@ export default function Page() {
 
                 <Card className="mt-2 max-w-xl bg-background/80 backdrop-blur-sm">
                   <div id="sage-publishing-text" className="p-6">
-                    <p className="journal-print-wrap text-sm sm:text-base">Published by Sage College Publishing, a leading independent academic publisher committed to affordable textbooks, trusted authorship, and excellent service. Sage's guaranteed independence supports an equitable academic future and invests in new ideas that drive education forward.</p>
+                    <p className="journal-print-wrap text-sm sm:text-base">Published by Sage College Publishing, a leading independent academic publisher committed to affordable textbooks, trusted authorship, and excellent service. Sage&apos;s guaranteed independence supports an equitable academic future and invests in new ideas that drive education forward.</p>
                   </div>
                 </Card>
               </div>
